@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #yesButton, #sobraButton, #hindiButton, #backButton {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>"Hi, baby! I hope you know how much love and light you bring into my life. I know I am kinda late for asking this but"</h1>
+    <button onclick="next()">Next</button>
+
+    <h2>"Will you be my Valentine?"</h2>
+    <button onclick="response('yes')">Yes</button>
+    <button onclick="response('no')">No</button>
+    <button id="yesButton" onclick="celebrate()">Yes</button>
+    <button id="sobraButton" onclick="extra()">Sobra</button>
+    <button id="hindiButton" onclick="wrong()">Hindi</button>
+    <button id="backButton" onclick="back()">Go Back</button>
+
+    <p id="responseMessage"></p>
+
+    <script>
+        var step = 1;
+
+        function next() {
+            if (step === 1) {
+                step++;
+                document.getElementsByTagName("h1")[0].style.display = "none";
+                document.getElementsByTagName("button")[0].style.display = "none";
+                document.getElementsByTagName("h2")[0].style.display = "block";
+                document.getElementsByTagName("button")[1].style.display = "inline-block";
+                document.getElementsByTagName("button")[2].style.display = "inline-block";
+            }
+        }
+
+        function response(answer) {
+            var responseMessage = document.getElementById("responseMessage");
+            if (answer === 'yes') {
+                responseMessage.textContent = "Yeyy, mahal mo talaga ako!";
+                document.getElementById("yesButton").style.display = "inline-block";
+                document.getElementById("sobraButton").style.display = "inline-block";
+                document.getElementById("hindiButton").style.display = "none";
+            } else {
+                responseMessage.textContent = "Sure ka na? Mahal mo ako huy, ulitin mo";
+                document.getElementById("yesButton").style.display = "none";
+                document.getElementById("sobraButton").style.display = "none";
+                document.getElementById("hindiButton").style.display = "inline-block";
+            }
+        }
+
+        function celebrate() {
+            var responseMessage = document.getElementById("responseMessage");
+            responseMessage.textContent = "I love you, baby. My love for you continues to grow every single day. You'll forever be my Valentine.";
+            document.getElementById("yesButton").style.display = "none";
+            document.getElementById("sobraButton").style.display = "none";
+            document.getElementById("hindiButton").style.display = "none";
+            document.getElementById("backButton").style.display = "inline-block";
+        }
+
+        function extra() {
+            var responseMessage = document.getElementById("responseMessage");
+            responseMessage.textContent = "Okay, lambingin mo na ako.";
+            document.getElementById("yesButton").style.display = "none";
+            document.getElementById("sobraButton").style.display = "none";
+            document.getElementById("hindiButton").style.display = "none";
+            document.getElementById("backButton").style.display = "inline-block";
+        }
+
+        function wrong() {
+            var responseMessage = document.getElementById("responseMessage");
+            responseMessage.textContent = "Wrong choice! Go back";
+            document.getElementById("yesButton").style.display = "none";
+            document.getElementById("sobraButton").style.display = "none";
+            document.getElementById("hindiButton").style.display = "none";
+            document.getElementById("backButton").style.display = "inline-block";
+        }
+
+        function back() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
